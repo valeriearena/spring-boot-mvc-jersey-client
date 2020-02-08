@@ -1,0 +1,13 @@
+.DS_Store
+
+*.class
+*.iml
+
+.idea/
+.gradle/
+gradle/
+build/
+classes/
+out/
+
+mhcureaccount.log

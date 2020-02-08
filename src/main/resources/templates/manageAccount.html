@@ -1,0 +1,112 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+    <link rel="stylesheet" href="theme/style.css" type="text/css" media="screen"/>
+
+    <script>
+        function onReadClick() {
+            var accountUserName = document.getElementById("accountUserName").value;
+            window.location.href = "/mhcureaccount/forgot?accountUserName="+accountUserName;
+        }
+
+    </script>
+
+    <title>MH-CURE</title>
+    <meta charset="UTF-8">
+</head>
+<body>
+
+<div id="top-container-inner"></div>
+<div style="height: 90px;"></div>
+<div class="content">
+    <div id="pagetitle-wrapper" class="shadow-right-bottom">
+        <span style="float: left;padding: 8px 0px 0px 10px;"></span>
+        <span class="pageTitle">Use your current password to update your MH-CURE password!</span>
+    </div>
+    <div style="padding: 10px 15px 20px 15px;">
+
+        <form th:action="@{/manageAccount}" th:object="${userAccount}" method="post">
+
+            <h4 style="color:#000080;" th:text="${successMessage}"></h4>
+            <h4 style="color:#ff0000;" th:text="${errorMessage0}"></h4>
+            <h4 style="color:#ff0000;" th:text="${errorMessage1}"></h4>
+            <h4 style="color:#ff0000;" th:text="${errorMessage2}"></h4>
+            <h4 style="color:#ff0000;" th:text="${errorMessage3}"></h4>
+            <h4 style="color:#ff0000;" th:text="${errorMessage4}"></h4>
+            <h4 style="color:#ff0000;" th:text="${errorMessage5}"></h4>
+            <h4 style="color:#ff0000;" th:text="${errorMessage6}"></h4>
+            <h4 style="color:#ff0000;" th:text="${errorMessage7}"></h4>
+            <h4 style="color:#ff0000;" th:text="${errorMessage8}"></h4>
+            <h4 style="color:#ff0000;" th:text="${errorMessage9}"></h4>
+
+            <table class="table-form">
+
+                <tr>
+                    <td>
+                        <label class="label">Account User Name: </label>
+                    </td>
+                    <td>
+                        <input type="text" th:field="*{accountUserName}" id="accountUserName"/>
+                        <label class="error" th:if="${#fields.hasErrors('accountUserName')}" th:errors="*{accountUserName}">Account User Name Error</label>
+                    </td>
+
+                </tr>
+
+                <tr>
+                    <td>
+                        <label class="label">Account Password: </label>
+                    </td>
+                    <td>
+                        <input type="password" th:field="*{accountPassword}"/>
+                        <label class="error" th:if="${#fields.hasErrors('accountPassword')}" th:errors="*{accountPassword}">Account Password Error</label>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td colspan="100%">
+                        <hr>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <label class="label">New Password: </label>
+                    </td>
+                    <td>
+                        <input type="password" th:field="*{newPassword}"/>
+                        <label class="error" th:if="${#fields.hasErrors('newPassword')}" th:errors="*{newPassword}">New Password Error</label>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <label class="label">Confirm Password: </label>
+                    </td>
+                    <td>
+                        <input type="password" th:field="*{confirmPassword}"/>
+                        <label class="error" th:if="${#fields.hasErrors('confirmPassword')}" th:errors="*{confirmPassword}">Confirm Password Error</label>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td align="left">
+                        <input type="submit" value="Save" class="button purple" />
+                    </td>
+                    <td align="right">
+                        <a href="#" onclick="onReadClick();">Forgot Password</a>
+
+                    </td>
+
+                </tr>
+            </table>
+
+        </form>
+
+
+    </div>
+</div>
+
+
+
+</body>
+</html>
